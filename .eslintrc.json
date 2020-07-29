@@ -1,0 +1,27 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "project": "./tsconfig.json"
+    },
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "semi":["error","always"],
+        "react/react-in-jsx-scope":["off"],
+        "indent":"error",
+        "quotes":["error","single"],
+        "comma-spacing":"error",
+        "@typescript-eslint/no-explicit-any": ["error"]
+    }
+}
