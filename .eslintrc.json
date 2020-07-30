@@ -22,6 +22,7 @@
         "indent":"error",
         "quotes":["error","single"],
         "comma-spacing":"error",
+        "space-in-parens":"error",
         "@typescript-eslint/no-explicit-any": ["error"]
     }
 }

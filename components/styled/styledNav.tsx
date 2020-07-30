@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 const NavContainer = styled.a`
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    height: 40px;
+    align-items:center;
 `;
 
 export default {
