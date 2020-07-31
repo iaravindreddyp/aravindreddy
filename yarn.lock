@@ -1565,6 +1565,16 @@ babel-plugin-dynamic-import-node@^2.3.3:
     babel-plugin-syntax-jsx "^6.18.0"
     lodash "^4.17.11"
 
+babel-plugin-styled-components@^1.11.0:
+  version "1.11.0"
+  resolved "https://artifacthub-tip.oraclecorp.com/api/npm/npmjs-remote/babel-plugin-styled-components/-/babel-plugin-styled-components-1.11.0.tgz#bfccbd3f1dede9ee14e2329ed5293c126a49dcc8"
+  integrity sha1-v8y9Px3t6e4U4jKe1Sk8EmpJ3Mg=
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.0.0"
+    "@babel/helper-module-imports" "^7.0.0"
+    babel-plugin-syntax-jsx "^6.18.0"
+    lodash "^4.17.11"
+
 babel-plugin-syntax-jsx@6.18.0, babel-plugin-syntax-jsx@^6.18.0:
   version "6.18.0"
   resolved "https://artifacthub-tip.oraclecorp.com/api/npm/npmjs-remote/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
