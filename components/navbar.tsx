@@ -9,14 +9,14 @@ const name = 'Aravind Reddy';
 const designation = 'Software Developer';
 
 export const NavBar=():ReactElement=>{
-    const {NavContainer, Profile, ProfileImage, ProfileName, ProfileDesignation, ProfileText, ContactLinks, IconContainer} = StyledNavBar;
+    const {NavContainer, Profile, ProfileImage, ProfileName, ProfileDesignation, ProfileText, ContactLinks, IconContainer, ProfileImageContainer} = StyledNavBar;
     const iconValue = { color: '#000', style: { verticalAlign: 'middle', fontSize: '30px' } };
     return(
         <NavContainer>
             <Profile>
-                <Link href="/"><a><ProfileImage src="/profile.jpg" alt="aravind reddy's image" /></a></Link>
+                <Link href="/"><ProfileImageContainer><ProfileImage src="/profile.jpg" alt="aravind reddy's image" /></ProfileImageContainer></Link>
                 <ProfileText>
-                    <ProfileName><Link href='/'><a>{name}</a></Link></ProfileName>
+                    <Link href='/'><ProfileName>{name}</ProfileName></Link>
                     <ProfileDesignation>{designation}</ProfileDesignation>
                 </ProfileText>
             </Profile>

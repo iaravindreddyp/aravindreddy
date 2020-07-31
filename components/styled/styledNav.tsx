@@ -11,6 +11,7 @@ const NavContainer = styled.div`
 
 const Profile = styled.div`
     display: flex;
+    line-height: 1;
 `;
 
 const ProfileImage = styled.img`
@@ -20,18 +21,27 @@ const ProfileImage = styled.img`
     border: 2px solid #acacae;
 `;
 
-const ProfileName = styled.text`
+const ProfileImageContainer = styled.a`
+    display: block;
+    padding: 8px;
+    font-size: 0;
+`;
+
+const ProfileName = styled.a`
     color: #1f2933;
+    font-weight: 600;
+    font-size: 1.3rem;
+    padding: 4px 8px;
 `;
 
 const ProfileDesignation = styled.div`
     color: #616e7c;
+    padding: 0 0 4px 8px;
 `;
 
 const ProfileText = styled.div`
     display:flex;
     flex-direction: column;
-    padding: 8px;
     justify-content: center;
 `;
 
@@ -46,6 +56,7 @@ const IconContainer = styled.div`
 export default {
     NavContainer,
     ProfileImage,
+    ProfileImageContainer,
     Profile,
     ProfileName,
     ProfileDesignation,

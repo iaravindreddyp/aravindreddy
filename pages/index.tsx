@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 export default function Home():ReactElement {
     const {HomeView} = StyledHome;
     return (
-        <Layout isHome>
+        <Layout>
             <HomeView>
                 <Head>
                     <title>Home - Aravind Reddy</title>
