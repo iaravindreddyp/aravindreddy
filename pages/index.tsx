@@ -5,11 +5,11 @@ import Layout from '../components/styled/layout';
 
 export default function Home():ReactElement {
     const {HomeView, Title, Center, AboutText, TextHighlighter} = StyledHome;
-    const {AboutLayout} = Layout;
+    const {AboutLayout, List, ListItem, ExternalLink} = Layout;
     return (
         <HomeView>
             <Head>
-                <title>Home - Aravind Reddy</title>
+                <title>Home</title>
                 <link rel="icon" href="/profile.png" />
             </Head>
             <AboutLayout>
@@ -22,7 +22,16 @@ export default function Home():ReactElement {
                     I&apos;m currently working as <TextHighlighter>Applications Engineer</TextHighlighter> at <TextHighlighter>Oracle</TextHighlighter>. My day to day work involve working with tech including but not limited to Nodejs, 
                     Express and Typescript in the backend and Ojet in the UI.
                 </AboutText>
-                <AboutText>I also enjoy contributing to open source and writing automation scripts.</AboutText>
+                <AboutText>Here are some things i do to keep my learning going:</AboutText>
+                <AboutText>
+                    <List>
+                        <ListItem firstItem>I enjoy contributing to open source projects.
+                         Currently am keeping an eye out for ROME and have already started contributing to it.
+                          you can checkout my open source activity at <ExternalLink href="https://github.com/aravind1078" target="_blank">Github</ExternalLink>.</ListItem>
+                        <ListItem>am an active answerer on {' '}
+                            <ExternalLink href="https://stackoverflow.com/users/8034782/aravind-reddy?tab=profile" target="_blank">StackOverflow</ExternalLink> especially in Javascript, 
+                            ReactJs and React-Native tags. This helps me to learn new things and patterns.I have more than 3k reputation on StackOverflow.</ListItem>
+                    </List></AboutText>
             </AboutLayout>
         </HomeView>
     );

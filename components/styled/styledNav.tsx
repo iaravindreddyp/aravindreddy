@@ -5,7 +5,7 @@ const NavContainer = styled.div`
     max-width: 1150px;
     flex-direction: row;
     width: 100%;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
     @media (max-width: 768px) {
         flex-direction: column;
@@ -28,6 +28,7 @@ const ProfileImageContainer = styled.a`
     display: block;
     padding: 8px;
     font-size: 0;
+    cursor: pointer;
 `;
 
 const ProfileName = styled.a`
@@ -35,6 +36,10 @@ const ProfileName = styled.a`
     font-weight: 600;
     font-size: 1.3rem;
     padding: 4px 8px;
+    :hover{
+        color: #419bf9;
+        cursor: pointer;
+    }
 `;
 
 const ProfileDesignation = styled.div`
@@ -69,14 +74,19 @@ const Nav = styled.nav`
 const NavItem = styled.li`
     display: inline-block;
     list-style-type: none;
+    :hover{
+        color: #419bf9;
+        cursor: pointer;
+    }
 `;
 
 const IconContainer = styled.div`
     padding: 0px 16px;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled.a<{isActiveRoute:boolean}>`
     padding: 4px 10px;
+    color: ${({isActiveRoute})=> isActiveRoute ? '#1f2933':'#8c9297'};
 `;
 
 export default {

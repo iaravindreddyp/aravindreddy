@@ -4,11 +4,12 @@ import StyledNavBar from './styled/styledNav';
 import { IconContext } from 'react-icons';
 import { AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai';
 import { DiStackoverflow } from 'react-icons/di';
+import NavLinkHoc from './navLinkHoc';
 
 const name = 'Aravind Reddy';
 const designation = 'Software Developer';
 
-export const NavBar=():ReactElement=>{
+const NavBar=():ReactElement=>{
     const {NavContainer, Profile, ProfileImage, ProfileName,
         ProfileDesignation, ProfileText, ContactLinks, IconContainer, ProfileImageContainer, Nav,
         NavItem, NavLink} = StyledNavBar;
@@ -34,11 +35,13 @@ export const NavBar=():ReactElement=>{
             </ContactLinks> */}
             <Nav>
                 <ul style={{padding:0}}>
-                    <NavItem><NavLink>Home</NavLink></NavItem>
-                    <NavItem><NavLink>Blog</NavLink></NavItem>
-                    <NavItem><NavLink>About</NavLink></NavItem>
+                    <NavItem><NavLinkHoc href="/">Home</NavLinkHoc></NavItem>
+                    <NavItem><NavLinkHoc href="/blog">Blog</NavLinkHoc></NavItem>
+                    <NavItem><NavLinkHoc href="/about">About</NavLinkHoc></NavItem>
                 </ul>
             </Nav>
         </NavContainer>
     );
 };
+
+export default NavBar;

@@ -14,6 +14,31 @@ const AboutLayout = styled.main`
     max-width: 650px;
 `;
 
-const StyledLayouts = { AppView, AboutLayout };
+const List = styled.ul`
+    margin:0;
+`;
+
+const ListItem = styled.li<{firstItem?: boolean}>`
+    padding-top: ${({firstItem})=> !firstItem ? '15px':'0px'};
+    margin: 0px;
+`;
+
+const ExternalLink = styled.a`
+    color: #5B34DA;
+    text-decoration: none;
+    :hover{
+        text-decoration: underline;
+    }
+`;
+
+const StyledBackHome = styled.div`
+    padding: 15px 0px; 
+    color: #419bf9;
+    :hover{
+        text-decoration: underline;
+    }
+`;
+
+const StyledLayouts = { AppView, AboutLayout, List, ListItem, ExternalLink, StyledBackHome };
 
 export default StyledLayouts;

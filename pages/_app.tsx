@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import '../styles/globals.css';
 import StyledLayouts from '../components/styled/layout';
 import Head from 'next/head';
-import {NavBar} from '../components/navbar';
+import NavBar from '../components/navbar';
 
 function MyApp({ Component, pageProps }:AppProps):ReactElement {
     const {AppView} = StyledLayouts;
