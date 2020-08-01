@@ -10,6 +10,10 @@ const AppView = styled.div`
     color: #323f4b;
 `;
 
-const StyledLayouts = { AppView };
+const AboutLayout = styled.main`
+    max-width: 650px;
+`;
+
+const StyledLayouts = { AppView, AboutLayout };
 
 export default StyledLayouts;

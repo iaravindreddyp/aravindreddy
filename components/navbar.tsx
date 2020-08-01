@@ -9,7 +9,9 @@ const name = 'Aravind Reddy';
 const designation = 'Software Developer';
 
 export const NavBar=():ReactElement=>{
-    const {NavContainer, Profile, ProfileImage, ProfileName, ProfileDesignation, ProfileText, ContactLinks, IconContainer, ProfileImageContainer} = StyledNavBar;
+    const {NavContainer, Profile, ProfileImage, ProfileName,
+        ProfileDesignation, ProfileText, ContactLinks, IconContainer, ProfileImageContainer, Nav,
+        NavItem, NavLink} = StyledNavBar;
     const iconValue = { color: '#000', style: { verticalAlign: 'middle', fontSize: '30px' } };
     return(
         <NavContainer>
@@ -20,7 +22,7 @@ export const NavBar=():ReactElement=>{
                     <ProfileDesignation>{designation}</ProfileDesignation>
                 </ProfileText>
             </Profile>
-            <ContactLinks>
+            {/* <ContactLinks>
                 <IconContext.Provider value={iconValue}>
                     <IconContainer>
                         <AiFillLinkedin /></IconContainer>
@@ -29,7 +31,14 @@ export const NavBar=():ReactElement=>{
                     <IconContainer>
                         <DiStackoverflow /></IconContainer>
                 </IconContext.Provider>
-            </ContactLinks>
+            </ContactLinks> */}
+            <Nav>
+                <ul style={{padding:0}}>
+                    <NavItem><NavLink>Home</NavLink></NavItem>
+                    <NavItem><NavLink>Blog</NavLink></NavItem>
+                    <NavItem><NavLink>About</NavLink></NavItem>
+                </ul>
+            </Nav>
         </NavContainer>
     );
 };

@@ -7,6 +7,9 @@ const NavContainer = styled.div`
     width: 100%;
     align-items:center;
     justify-content: space-between;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `;
 
 const Profile = styled.div`
@@ -18,7 +21,7 @@ const ProfileImage = styled.img`
     height: 64px;
     width: 64px;
     border-radius: 50%;
-    border: 2px solid #acacae;
+    border: 2px solid #419bf9;
 `;
 
 const ProfileImageContainer = styled.a`
@@ -47,10 +50,33 @@ const ProfileText = styled.div`
 
 const ContactLinks = styled.div`
     display: flex;
+    @media (max-width: 768px) {
+        padding-top: 16px;
+        width:100%;
+        justify-content: space-around;
+    }
+`;
+
+const Nav = styled.nav`
+    display: flex;
+    @media (max-width: 768px) {
+        margin-top: 16px;
+        width:100%;
+        justify-content: space-around;
+    }
+`;
+
+const NavItem = styled.li`
+    display: inline-block;
+    list-style-type: none;
 `;
 
 const IconContainer = styled.div`
     padding: 0px 16px;
+`;
+
+const NavLink = styled.a`
+    padding: 4px 10px;
 `;
 
 export default {
@@ -62,5 +88,8 @@ export default {
     ProfileDesignation,
     ProfileText,
     ContactLinks,
-    IconContainer
+    IconContainer,
+    Nav,
+    NavItem,
+    NavLink
 };
