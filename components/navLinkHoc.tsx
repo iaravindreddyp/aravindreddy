@@ -6,7 +6,6 @@ import StyledNav from './styled/styledNav';
 const NavLinkHoc=({href, children}:{href:string, children:string}):ReactElement=>{
     const {NavLink} =  StyledNav;
     const router = useRouter();
-    console.log('href', href, router.pathname);
     const isActiveRoute = router.pathname===href;
     return (
         <Link href={href}><NavLink isActiveRoute={isActiveRoute}>{children}</NavLink></Link>);

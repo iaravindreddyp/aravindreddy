@@ -86,7 +86,11 @@ const IconContainer = styled.div`
 
 const NavLink = styled.a<{isActiveRoute:boolean}>`
     padding: 4px 10px;
-    color: ${({isActiveRoute})=> isActiveRoute ? '#1f2933':'#8c9297'};
+    color: ${({ isActiveRoute }) => isActiveRoute ? '#5907ea': '#1f2933'};
+    :hover{
+        cursor: pointer;
+        color: #5907ea;
+    }
 `;
 
 export default {

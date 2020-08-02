@@ -13,7 +13,7 @@ const Center = styled.div`
     justify-content: center;
 `;
 
-const AboutText = styled.p`
+const AboutText = styled.div`
     line-height: 1.4;
     padding: 15px 0px;
     margin: 0px;
