@@ -17,7 +17,7 @@ const NavBar=():ReactElement=>{
     return(
         <NavContainer>
             <Profile>
-                <Link href="/"><ProfileImageContainer><ProfileImage src="/profile.jpg" alt="aravind reddy's image" /></ProfileImageContainer></Link>
+                <Link href="/"><ProfileImageContainer><ProfileImage src="/profile.webp" alt="aravind reddy's image" /></ProfileImageContainer></Link>
                 <ProfileText>
                     <Link href='/'><ProfileName>{name}</ProfileName></Link>
                     <ProfileDesignation>{designation}</ProfileDesignation>
