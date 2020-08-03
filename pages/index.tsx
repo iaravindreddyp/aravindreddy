@@ -10,7 +10,7 @@ export default function Home():ReactElement {
         <HomeView>
             <Head>
                 <title>Home</title>
-                <link rel="icon" href="/profile.png" />
+                <link rel="icon" href="/profile.jpg" />
                 <meta
                     name="description"
                     content="intro to aravind reddy, where he works, what he loves doing" 
@@ -27,18 +27,17 @@ export default function Home():ReactElement {
                  continue to add others in my arsenal.
                 </AboutText>
                 <AboutText>
-                    I&apos;m currently working as <TextHighlighter>Applications Engineer</TextHighlighter> at <TextHighlighter>Oracle</TextHighlighter>. My day to day work involve working with tech including but not limited to Nodejs, 
-                    Express and Typescript in the backend and Ojet in the UI.
+                    I&apos;m currently working as <TextHighlighter>Applications Engineer</TextHighlighter> at <TextHighlighter>Oracle</TextHighlighter>. My current role involve working with tech including but not limited to Nodejs, 
+                    Express and Typescript in the backend and Oracle-jet in the UI.
                 </AboutText>
                 <AboutText>Here are some things i do to keep my learning going:</AboutText>
                 <AboutText>
                     <List>
-                        <ListItem firstItem>I enjoy contributing to open source projects.
-                        Currently am keeping an eye out for ROME and have already started contributing to it.
-                          you can checkout my open source activity at <ExternalLink rel="noreferrer" href="https://github.com/aravind1078" target="_blank">Github</ExternalLink>.</ListItem>
-                        <ListItem>am an active answerer on {' '}
-                            <ExternalLink rel="noreferrer" href="https://stackoverflow.com/users/8034782/aravind-reddy?tab=profile" target="_blank">StackOverflow</ExternalLink> especially in Javascript, 
-                            ReactJs and React-Native tags. This helps me to learn new things and patterns.I have more than 3k reputation on StackOverflow.</ListItem>
+                        <ListItem firstItem>I enjoy contributing to open source projects,
+                        Currently am keeping an eye out for <ExternalLink rel="noreferrer" href="https://github.com/romefrontend/rome" target="_blank">rome</ExternalLink> and have made some contributions as well.
+                          Checkout my open source activity at <ExternalLink rel="noreferrer" href="https://github.com/aravind1078" target="_blank">Github</ExternalLink>.</ListItem>
+                        <ListItem>I&apos;m an active answerer/user on Stackoverflow especially in Javascript, 
+                            ReactJs and React-Native tags,I&apos;m also part of the top 5% answerers in ReactJs & Javascript technologies on <ExternalLink rel="noreferrer" href="https://stackoverflow.com/users/8034782/aravind-reddy?tab=profile" target="_blank">Stackoverflow</ExternalLink>, with more than 3k reputation overall.</ListItem>
                     </List></AboutText>
             </AboutLayout>
         </HomeView>
