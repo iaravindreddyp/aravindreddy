@@ -1,0 +1,195 @@
+---
+title: "Asynchronous programming in Javascript"
+publishedDate: "November 22, 2019"
+summary: " different approaches for asynchronous programming"
+isPublished: true
+---
+Have you ever used callbacks, promises or the latest async-await in your JavaScript code? did you find it difficult to wrap your head around those? Have you ever wondered what is happening under the hood...? Well, let's try getting a knack of them.
+
+## Intro
+Asynchronous Programming in JavaScript can be confusing for the people learning JavaScript for the first time and sometimes even the experienced struggles, Well at least I did not know what was happening under the hood. As we know JavaScript is single-threaded meaning it can only do one task at a time unlike other programming languages like java,c# which are multi-threaded. so what do we do when we want to fetch something from an API or doing some async database operation in the back-end? that is where our callbacks, promises, or the async-await comes into the picture. we do not want to block our JavaScript main thread but we want to be notified when our asynchronous operation is done so, that is where we use asynchronous programming concepts. lets look at them and how they evolved...
+
+## Evolution of Asynchronous JavaScript
+    
+   * [Callbacks](#Callbacks) 
+   * [Promises](#promises)
+   * [Async-Await](#async-await)
+
+
+### Callbacks <a name="Callbacks"></a>
+  callbacks are just the functions passed in as an argument which you want them to be called after some operation is done
+
+  ```javascript
+      function add(x,y,callback){
+            const sum = x+y;
+            callback(sum);
+       };
+
+       add(2,3,function(sum){
+       console.log('sum',sum); //sum 5
+       });
+  ```
+ this is fairly simple all we need to do is pass in a function which we want to execute after the asynchronous operation is done But,the major problem this approach introduces is when we want to do multiple asynchronous calls and we have to do them one after the another... it introduced what is popularly known as [call-back hell](https://en.wiktionary.org/wiki/callback_hell). looks similar to below code:
+```javascript
+getData(function(a){
+    getMoreData(a, function(b){
+        getMoreData(b, function(c){ 
+            getMoreData(c, function(d){ 
+	            getMoreData(d, function(e){ 
+		            ...
+		        });
+	        });
+        });
+    });
+});
+```
+
+since every async call depended on the data fetched from the previous call it had to wait for the previous one to complete. This works but it was very hard to debug and maintain. let's look at how promises solve this problem. 
+ 
+### Promises <a name="promises"></a>
+![alt text](https://media.giphy.com/media/l1J9wZJLPywQuKovK/giphy.gif "promise")
+
+Promises are introduced in es6 and solved some of the problems of callbacks. Every promise constructor expects a function which has two parameters `resolve` and `reject`. `resolve` is called if the promise is resolved successfully and reject if the promise is rejected or if any error has occurred.
+```javascript
+      const promise = new Promise(function(resolve, reject) { 
+             // an API call or any async operation 
+      }); 
+```
+Here the function arguments both `resolve` and `reject` are functions again and are called appropriately.Lets look at an example:
+
+```javascript
+const promise = new Promise(function(resolve, reject)  {
+     setTimeout(() => {
+      resolve("Time is out");
+     }, 4000);
+   });
+
+promise
+.then(function(data){console.log(data)})
+.catch(function(error){console.log('Something bad happened: ',error)})
+```
+a promise is just an object which executes any async operation and calls resolve or reject functions passed to its callback as parameters accordingly. 
+In the above `setTimeout` example we created a new Promise and assigned it to a variable where we passed in a callback with resolve and reject. What is happening inside is:
+
+1.first promise tries executing what is there inside the callback which is 
+   `setTimeout`
+
+2.after 4 seconds when `setTimeout` is done it tries to resolve 
+  as in it calls resolve function
+
+3.The `resolve` we passed as a call back function parameter will  
+   bind to another function inside the `Promise` class, let's call it 
+   `onResolved`. so when `resolve` is called inside the `setTimeout`, It invokes the function `onResolved` inside the `Promise` class with the value you pass into the `resolve`. Here it is `Time is out` string.
+
+4.Inside the `onResolved` function it calls the callback you passed to `.then()` 
+  with the value it receives from `resolve` and similarly it handles reject as 
+  well
+
+5.This is a simple version of whats going inside the Promise so if you 
+   are chaining multiple promises then it becomes little more 
+   complex...`Promise` class maintains an array for callbacks which will 
+   are called one after the other in the order of your `.then()` 
+   statements. If you want to dive deeper look at [this article](https://levelup.gitconnected.com/understand-javascript- 
+  promises-by-building-a-promise-from-scratch-84c0fd855720)
+
+so with promise chaining, you don't have to put one call back inside the other you can chain them one after the other 
+ 
+suppose if you want to do two asynchronous things and you want to use the data returned from one promise to do another async call we could do something like this with promises:
+
+```javascript
+  const promise1 =new Promise(function(resolve,reject){
+     // async work
+  })
+
+  const promise2 = function(datafromFirst){
+    return new Promise(function(resolve,reject){
+     // async work
+   })
+  }
+
+  promise1
+  .then(function(data1){console.log(data1); return promise2(data1) })
+  .then(function(data2){console.log(data2); })
+  .catch(function(error){console.log(error);//error caught from any of 
+  the promises})
+```
+
+ this has made code more readable and can be easily understood... but chaining of promises made it confusing. Since the previous promise had to return a promise for chaining, debugging was also not easy..surely, promises have made it more easy to write async code and avoided callback hell but can we do better? oh yeah! definitely with async and await...
+
+### Async-Await <a name="async-await"></a>
+
+   The new `async-await` in es8 use the same `promises` under the hood but they remove the need of passing the callbacks and having to deal with the chaining of promises. It provided way more abstraction and code looks a lot cleaner now.
+
+```javascript
+ async function func(){
+    try{
+    const result = await someasynccall();
+    console.log(result);
+    }
+   catch(error){
+     console.log(error); 
+   } 
+}
+```
+
+we need to use the keyword `async` to make a function async and only then you can use the keyword `await` inside the function. we can wrap `try-catch` around the await code so that when an error is thrown we will be able to catch it.
+
+Let's look at the previous example of two async calls where we needed data from the first one to do another async call with async await syntax.
+
+```javascript
+  async function func(){
+      try{
+       const data1 = await someasyncall();
+       const data2 = await anotherasynccall(data1);
+       console.log(data2);
+      }
+     catch(error){
+     console.log(error); 
+   }
+  }
+```
+This looks cleaner, At least easy to write...
+
+suppose we want to return something from async function and we want to use it afterwards, Then we need to use IIFE pattern. 
+
+With the below code what do you think will `console.log(message)` log?
+```javascript
+async function func(){
+    try{
+    const result = await someasynccall();
+    console.log('result',result);
+    return 'successful';
+    }
+   catch(error){
+     console.log(error); 
+     return 'failed';
+   } 
+}
+
+const message = func();
+console.log(message) 
+```
+
+the `console.log(message)` will print `Promise{<pending>}` but not the actual 'successful' or 'failed' because our `console.log` runs before the promise inside the `await someasynccall()` is done executing so if we want to actually use `message` value then we need to use IIFE(immediately invoked function expression) like below:
+
+```javascript
+async function func(){
+    try{
+    const result = await someasynccall();
+    console.log('result',result);
+    return 'successful';
+    }
+   catch(error){
+     console.log(error);
+     return 'failed'; 
+   } 
+}
+
+(async function(){
+ const message = await func();
+ console.log(message);
+})();
+```
+so we make use of another async function which is immediately invoked and `await` for the function to return the message string and then use it.
+
+This is how, The way we handle the async code has evolved over the years now with the latest `async-await`, Code looks a lot cleaner and readable.

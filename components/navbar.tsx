@@ -11,9 +11,8 @@ const designation = 'Software Developer';
 
 const NavBar=():ReactElement=>{
     const {NavContainer, Profile, ProfileImage, ProfileName,
-        ProfileDesignation, ProfileText, ContactLinks, IconContainer, ProfileImageContainer, Nav,
-        NavItem, NavLink} = StyledNavBar;
-    const iconValue = { color: '#000', style: { verticalAlign: 'middle', fontSize: '30px' } };
+        ProfileDesignation, ProfileText, ProfileImageContainer, Nav,
+        NavItem} = StyledNavBar;
     return(
         <NavContainer>
             <Profile>
@@ -23,16 +22,6 @@ const NavBar=():ReactElement=>{
                     <ProfileDesignation>{designation}</ProfileDesignation>
                 </ProfileText>
             </Profile>
-            {/* <ContactLinks>
-                <IconContext.Provider value={iconValue}>
-                    <IconContainer>
-                        <AiFillLinkedin /></IconContainer>
-                    <IconContainer>
-                        <AiFillTwitterCircle /></IconContainer>
-                    <IconContainer>
-                        <DiStackoverflow /></IconContainer>
-                </IconContext.Provider>
-            </ContactLinks> */}
             <Nav>
                 <ul style={{padding:0}}>
                     <NavItem><NavLinkHoc href="/">Home</NavLinkHoc></NavItem>

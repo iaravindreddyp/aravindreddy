@@ -19,14 +19,10 @@ const AboutText = styled.div`
     margin: 0px;
 `;
 
-const TextHighlighter = styled.span`
-    color: #ce125a;
-`;
 
 export default {
     HomeView,
     Title,
     Center,
-    AboutText,
-    TextHighlighter
+    AboutText
 };

@@ -16,6 +16,7 @@
         "project": "./tsconfig.json"
     },
     "plugins": ["@typescript-eslint"],
+    "ignorePatterns": "next.config.js",
     "rules": {
         "semi":["error","always"],
         "react/react-in-jsx-scope":["off"],
