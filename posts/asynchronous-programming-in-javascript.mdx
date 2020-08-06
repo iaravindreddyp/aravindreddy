@@ -1,9 +1,10 @@
----
-title: "Asynchronous programming in Javascript"
-publishedDate: "November 22, 2019"
-summary: " different approaches for asynchronous programming"
-isPublished: true
----
+export const meta = { 
+    title: "Asynchronous programming in Javascript",
+    publishedDate: "November 22, 2019",
+    summary: " different approaches for asynchronous programming",
+    isPublished: true
+};
+
 Have you ever used callbacks, promises or the latest async-await in your JavaScript code? did you find it difficult to wrap your head around those? Have you ever wondered what is happening under the hood...? Well, let's try getting a knack of them.
 
 ## Intro
@@ -89,8 +90,7 @@ In the above `setTimeout` example we created a new Promise and assigned it to a 
    are chaining multiple promises then it becomes little more 
    complex...`Promise` class maintains an array for callbacks which will 
    are called one after the other in the order of your `.then()` 
-   statements. If you want to dive deeper look at [this article](https://levelup.gitconnected.com/understand-javascript- 
-  promises-by-building-a-promise-from-scratch-84c0fd855720)
+   statements.
 
 so with promise chaining, you don't have to put one call back inside the other you can chain them one after the other 
  
@@ -110,7 +110,7 @@ suppose if you want to do two asynchronous things and you want to use the data r
   promise1
   .then(function(data1){console.log(data1); return promise2(data1) })
   .then(function(data2){console.log(data2); })
-  .catch(function(error){console.log(error);//error caught from any of 
+  .catch(function(error){console.log(error);//catch error
   the promises})
 ```
 

@@ -6,16 +6,14 @@ import StyledLayouts from '../components/styled/layout';
 import Head from 'next/head';
 import NavBar from '../components/navbar';
 import {MDXCodeBlock} from '../lib/mdx';
+import StyledBlog from '../components/styled/blog';
 
 const MDXComponents = {
+    p: StyledBlog.Text,
     pre: MDXCodeBlock,
     code: MDXCodeBlock
-};
-const components = {
     // eslint-disable-next-line react/display-name
-    pre: (props: JSX.IntrinsicAttributes & import('react').ClassAttributes<HTMLDivElement> & import('react').HTMLAttributes<HTMLDivElement>) => <div {...props} />,
-    // eslint-disable-next-line react/display-name
-    code: (props: JSX.IntrinsicAttributes & import('react').ClassAttributes<HTMLPreElement> & import('react').HTMLAttributes<HTMLPreElement>) => <pre style={{ color: 'tomato' }} {...props} />
+    //code: (props: JSX.IntrinsicAttributes & import('react').ClassAttributes<HTMLPreElement> & import('react').HTMLAttributes<HTMLPreElement>) => <pre style={{ color: 'tomato' }} {...props} />
 };
 
 function MyApp({ Component, pageProps }:AppProps):ReactElement {

@@ -11,7 +11,7 @@ import { DiStackoverflow } from 'react-icons/di';
 const About=():ReactElement=>{
     const { StyledBackHome, LinkHighlighter, AboutText, AppLayout, TextHighlighter } = Layouts;
     const { SectionHeading, ContactHeading, ContactIconsContainer, ContactLink } = StyledAbout;
-    const iconValue = { color: '#5B34DA;', style: { verticalAlign: 'middle', fontSize: '30px' } };
+    const iconValue = { color: '#5B34DA', style: { verticalAlign: 'middle', fontSize: '30px' } };
     return(
         <>
             <Head>

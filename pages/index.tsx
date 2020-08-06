@@ -29,12 +29,12 @@ export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElem
                  continue to add others in my arsenal.
                 </AboutText>
                 <AboutText>
-                    Know more about me and my contact info <LinkHighlighter><Link href='/about'><a>here 👉</a></Link></LinkHighlighter>.
+                    Know more about me and my contact info <Link href='/about'><LinkHighlighter>here 👉</LinkHighlighter></Link>.
                 </AboutText>
                 <h2>Recent Articles</h2>
                 <section>
                     {allPostsData.map(({ slug, publishedDate, title }, index) => (
-                        <Fragment key= { slug }>
+                        <Fragment key={slug}>
                             <div>{title}-{publishedDate}</div>
                             {allPostsData.length > index + 1 && <Line />}
                         </Fragment>

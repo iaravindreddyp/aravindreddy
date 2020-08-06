@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import nightOwl from 'prism-react-renderer/themes/nightOwl';
+import dracula from 'prism-react-renderer/themes/dracula';
 import styled from 'styled-components';
 
 
@@ -20,7 +20,7 @@ const MDXCodeBlock = (props: any): ReactElement => {
             {...defaultProps}
             code={children.trim()}
             language={language as Language}
-            theme={nightOwl}
+            theme={dracula}
         >
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
                 <CodePreBlockWithHighlight
@@ -54,7 +54,7 @@ export { MDXCodeBlock };
 const CodePreBlockWithHighlight = styled.pre`
 	padding: 15px;
 	border-radius: 5px;
-	font-size: 14px;
+	font-size: 16px;
 	.highlight-line {
 		background-color: rgb(53, 59, 69, 0.5);
 		display: block;

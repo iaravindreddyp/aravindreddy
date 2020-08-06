@@ -1,18 +1,23 @@
 import Layout from '../../components/styled/layout';
 import dynamic from 'next/dynamic';
-import {getAllPostIds, getPostData} from '../../lib/posts';
+import {getAllPosts, getPostData} from '../../lib/posts';
 import {ReactElement} from 'react';
 import StyledBlog from '../../components/styled/blog';
 
-export default function BlogPost({ postData }: { postData:BlogPost}):ReactElement{
+export default function BlogPost({ post }: { post: BlogPost}):ReactElement{
     const {AppLayout} = Layout;
-    const { BlogPostMDXContent } = StyledBlog;
-    const Post = dynamic(()=>import(`../../posts/${postData.slug}.mdx`));
+    const { BlogPostMDXContent, BlogTitle, DateStamp } = StyledBlog;
+    const Content = dynamic(()=>import(`../../posts/${post.slug}.mdx`));
     return(
         <AppLayout>
-            {postData.title}
+            <BlogTitle>
+                {post.title}
+            </BlogTitle>
+            <DateStamp>
+                {post.publishedDate}
+            </DateStamp>
             <BlogPostMDXContent>
-                <Post />
+                <Content />
             </BlogPostMDXContent>
         </AppLayout>
     );
@@ -20,7 +25,7 @@ export default function BlogPost({ postData }: { postData:BlogPost}):ReactElemen
 }
 
 export async function getStaticPaths() {
-    const paths = getAllPostIds();
+    const paths = getAllPosts().map(post=>({params:{slug:post.slug}}));
     return {
         paths,
         fallback: false
@@ -29,11 +34,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }:{params:{'slug':string}}) {
     
-    
-    const postData = getPostData(params.slug);
+    const post = getAllPosts().find((post)=>post.slug===params.slug);
     return {
         props: {
-            postData
+            post
         }
     };
 }

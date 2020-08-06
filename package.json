@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.16", 
+    "@next/mdx":"^9.5.1",
     "babel-plugin-styled-components": "^1.11.0",
     "gray-matter": "^4.0.2",
     "next": "9.5.0",
