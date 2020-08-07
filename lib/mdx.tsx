@@ -54,7 +54,8 @@ export { MDXCodeBlock };
 const CodePreBlockWithHighlight = styled.pre`
 	padding: 15px;
 	border-radius: 5px;
-	font-size: 16px;
+    font-size: 16px;
+    overflow: scroll;
 	.highlight-line {
 		background-color: rgb(53, 59, 69, 0.5);
 		display: block;
