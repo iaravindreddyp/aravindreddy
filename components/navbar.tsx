@@ -1,9 +1,6 @@
 import React, { ReactElement } from 'react';
 import Link from 'next/link';
 import StyledNavBar from './styled/styledNav';
-import { IconContext } from 'react-icons';
-import { AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai';
-import { DiStackoverflow } from 'react-icons/di';
 import NavLinkHoc from './navLinkHoc';
 
 const name = 'Aravind Reddy';
