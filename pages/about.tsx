@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Layouts from '../components/styled/layout';
 import StyledAbout from '../components/styled/styledAbout';
 import { IconContext } from 'react-icons';
@@ -9,7 +8,7 @@ import { DiStackoverflow } from 'react-icons/di';
 
 
 const About=():ReactElement=>{
-    const { StyledBackHome, LinkHighlighter, AboutText, AppLayout, TextHighlighter } = Layouts;
+    const { LinkHighlighter, AboutText, AppLayout, TextHighlighter } = Layouts;
     const { SectionHeading, ContactHeading, ContactIconsContainer, ContactLink } = StyledAbout;
     const iconValue = { color: '#5B34DA', style: { verticalAlign: 'middle', fontSize: '30px' } };
     return(
@@ -89,9 +88,6 @@ const About=():ReactElement=>{
                         </ContactLink>
                     </IconContext.Provider>
                 </ContactIconsContainer>
-                <StyledBackHome>
-                    <Link href="/"><a>👈 Back Home</a></Link>
-                </StyledBackHome>
             </AppLayout>
         </>
     );

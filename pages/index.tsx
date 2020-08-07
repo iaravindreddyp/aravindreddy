@@ -3,15 +3,17 @@ import Link from 'next/link';
 import { ReactElement, Fragment } from 'react';
 import StyledHome from '../components/styled/styledHome';
 import Layout from '../components/styled/layout';
-import {getSortedPostsData} from '../lib/posts';
+import { getAllPosts} from '../lib/posts';
+import StyledBlog from '../components/styled/blog';
 
 export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElement {
-    const {HomeView, Title, Center, AboutText} = StyledHome;
+    const { HomeView, Center, AboutText, RecentArticlesHeader} = StyledHome;
     const {AppLayout, Line, TextHighlighter, LinkHighlighter} = Layout;
+    const { DateStamp, BlogPostPreviewCard, PreviewTitle, PreviewSummary } = StyledBlog; 
     return (
         <HomeView>
             <Head>
-                <title>Home — Aravind Reddy</title>
+                <title>Home &mdash; Aravind Reddy</title>
                 <link rel="icon" href="/profile.webp" />
                 <meta
                     name="description"
@@ -23,7 +25,7 @@ export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElem
                 />
             </Head>
             <AppLayout>
-                <Center><Title><b><TextHighlighter>Hey</TextHighlighter>, I&apos;m Aravind Reddy!</b><br /></Title></Center>
+                <Center><h1><b><TextHighlighter>Hey</TextHighlighter>, I&apos;m Aravind Reddy!</b><br /></h1></Center>
                 <AboutText>A passionately curious software developer from India in love with problem solving and playing with 0&apos;s and 1&apos;s (code💻 ).</AboutText>
                 <AboutText>I have worked with multiple programming languages & Technologies like Javascript, c#, Typescript, ReactJs, React-Native till now and 
                  continue to add others in my arsenal.
@@ -31,14 +33,23 @@ export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElem
                 <AboutText>
                     Know more about me and my contact info <Link href='/about'><LinkHighlighter>here 👉</LinkHighlighter></Link>.
                 </AboutText>
-                <h2>Recent Articles</h2>
+                <RecentArticlesHeader>Recent Articles</RecentArticlesHeader>
                 <section>
-                    {allPostsData.map(({ slug, publishedDate, title }, index) => (
-                        <Fragment key={slug}>
-                            <div>{title}-{publishedDate}</div>
-                            {allPostsData.length > index + 1 && <Line />}
-                        </Fragment>
-                    ))}
+                    {allPostsData.slice(0, 2).map(({ slug, publishedDate, title, summary }, index) => {
+                        return (
+                            <Fragment key={`${slug}`}>
+                                <Link href="/blog/[slug]" as={`/blog/${slug}`} key={`${slug}`}>
+                                    <BlogPostPreviewCard>
+                                        <PreviewTitle>{title}</PreviewTitle>
+                                        <DateStamp>
+                                            {publishedDate}
+                                        </DateStamp>
+                                        <PreviewSummary>{summary}</PreviewSummary>
+                                    </BlogPostPreviewCard>
+                                </Link>
+                                {index<1 && <Line />}
+                            </Fragment>
+                        );})}
                 </section>
             </AppLayout>
         </HomeView>
@@ -46,7 +57,7 @@ export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElem
 }
 
 export async function getStaticProps() {
-    const allPostsData = getSortedPostsData();
+    const allPostsData = getAllPosts();
     return {
         props: {
             allPostsData

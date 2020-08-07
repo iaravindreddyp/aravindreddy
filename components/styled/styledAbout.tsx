@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const SectionHeading = styled.h1`
-    font-size: 2.8rem;
     margin: 0 0 16px 0;
     text-align: center;
 `;

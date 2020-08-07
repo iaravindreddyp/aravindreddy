@@ -10,6 +10,7 @@ const NavContainer = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
     }
+    margin-bottom: 32px;
 `;
 
 const Profile = styled.div`
