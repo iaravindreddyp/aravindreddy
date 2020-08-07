@@ -5,7 +5,6 @@ export const getAllPosts = (): BlogPost[]=>{
     const META = /export\s+const\s+meta\s+=\s+(\{(\n|.)*?\n\})/;
     const DIR = path.join(process.cwd(), 'posts');
     const files = fs.readdirSync(DIR).filter((file) => file.endsWith('.mdx'));
-    console.log('test', files.length);
     const postsData: Array<BlogPost> = files
         .map((file) => {
             const name = path.join(DIR, file);

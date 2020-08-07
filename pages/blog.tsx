@@ -1,12 +1,15 @@
 import React, { ReactElement, Fragment } from 'react';
 import {GetStaticProps} from 'next';
+import fs from 'fs';
+import path from 'path';
 import Link from 'next/link';
 import Head from 'next/head';
 import Layouts from '../components/styled/layout';
 import {getAllPosts} from '../lib/posts';
 import StyledBlog from '../components/styled/blog';
 
-const Index = ({posts}:{posts:BlogPost[]}): ReactElement => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Index = ({posts, files, DIR}:{posts:BlogPost[], files:any, DIR:any}): ReactElement => {
     const { AppLayout, Line } = Layouts;
     const { DateStamp,  BlogPostPreviewCard, PreviewTitle, PreviewSummary, RouteTitle} = StyledBlog; 
     return (
@@ -38,7 +41,11 @@ const Index = ({posts}:{posts:BlogPost[]}): ReactElement => {
                         </Link>
                         {posts.length > index + 1 && <Line /> }
                     </Fragment>
-                )):<div>goneee</div>}
+                )):<Fragment>
+                    <div>goneee</div>
+                    <div>{DIR}</div>
+                    <div>{files}</div>
+                </Fragment>}
             </AppLayout>
         </Fragment>
     );
@@ -46,9 +53,10 @@ const Index = ({posts}:{posts:BlogPost[]}): ReactElement => {
 
 export async function getStaticProps() {
     const posts: BlogPost[] = getAllPosts();
-    console.error('s', posts);
+    const DIR = path.join(process.cwd(), 'posts');
+    const files = fs.readdirSync(DIR).filter((file) => file.endsWith('.mdx'));
     return {
-        props: { posts },
+        props: { posts, files, DIR },
     };
 }
 
