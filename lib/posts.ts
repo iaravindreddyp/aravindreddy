@@ -21,7 +21,7 @@ export const getAllPosts = (): BlogPost[]=>{
             };
         })
         .filter(
-            (meta) => process.env.NODE_ENV === 'development' || meta.published
+            (meta) => process.env.NODE_ENV === 'development' || meta.isPublished
         )
         .sort((a, b) => {
             return (
