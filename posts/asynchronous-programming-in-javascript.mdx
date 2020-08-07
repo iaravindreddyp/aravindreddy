@@ -48,7 +48,7 @@ getData(function(a){
 since every async call depended on the data fetched from the previous call it had to wait for the previous one to complete. This works but it was very hard to debug and maintain. let's look at how promises solve this problem. 
  
 ### Promises <a name="promises"></a>
-![alt text](https://media.giphy.com/media/l1J9wZJLPywQuKovK/giphy.gif "promise")
+<img src="https://media.giphy.com/media/l1J9wZJLPywQuKovK/giphy.gif" alt="promise" width="100%"/>
 
 Promises are introduced in es6 and solved some of the problems of callbacks. Every promise constructor expects a function which has two parameters `resolve` and `reject`. `resolve` is called if the promise is resolved successfully and reject if the promise is rejected or if any error has occurred.
 ```javascript

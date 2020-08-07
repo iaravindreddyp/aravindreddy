@@ -12,6 +12,7 @@ const AppView = styled.div`
 
 const AppLayout = styled.main`
     max-width: 700px;
+    width: 100%;
 `;
 
 const List = styled.ul`
