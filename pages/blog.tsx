@@ -25,7 +25,7 @@ const Index = ({posts}:{posts:BlogPost[]}): ReactElement => {
             </Head>
             <AppLayout>
                 <RouteTitle>Articles</RouteTitle>
-                {posts.map((post, index)=>(
+                {(posts.length>0)?posts.map((post, index)=>(
                     <Fragment key={`${post.slug}`}>
                         <Link href="/blog/[slug]" as={`/blog/${post.slug}`} key={`${post.slug}`}>
                             <BlogPostPreviewCard>
@@ -38,7 +38,7 @@ const Index = ({posts}:{posts:BlogPost[]}): ReactElement => {
                         </Link>
                         {posts.length > index + 1 && <Line /> }
                     </Fragment>
-                ))}
+                )):<div>goneee</div>}
             </AppLayout>
         </Fragment>
     );
@@ -46,7 +46,7 @@ const Index = ({posts}:{posts:BlogPost[]}): ReactElement => {
 
 export async function getStaticProps() {
     const posts: BlogPost[] = getAllPosts();
-
+    console.error('s', posts);
     return {
         props: { posts },
     };
