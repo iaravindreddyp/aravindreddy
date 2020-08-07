@@ -10,6 +10,7 @@ const NavContainer = styled.div`
     @media (max-width: 768px) {
         flex-direction: column;
     }
+    margin-bottom: 32px;
 `;
 
 const Profile = styled.div`
@@ -77,6 +78,8 @@ const NavItem = styled.li`
     :hover{
         color: #419bf9;
         cursor: pointer;
+        background-color: #d3d3d3;
+        border-radius: 4px;
     }
 `;
 

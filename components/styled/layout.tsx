@@ -10,8 +10,8 @@ const AppView = styled.div`
     color: #323f4b;
 `;
 
-const AboutLayout = styled.main`
-    max-width: 650px;
+const AppLayout = styled.main`
+    max-width: 700px;
 `;
 
 const List = styled.ul`
@@ -23,7 +23,7 @@ const ListItem = styled.li<{firstItem?: boolean}>`
     margin: 0px;
 `;
 
-const ExternalLink = styled.a`
+const LinkHighlighter = styled.a`
     color: #5B34DA;
     text-decoration: none;
     :hover{
@@ -39,6 +39,23 @@ const StyledBackHome = styled.div`
     }
 `;
 
-const StyledLayouts = { AppView, AboutLayout, List, ListItem, ExternalLink, StyledBackHome };
+const Line = styled.hr`
+    border: none;
+    border-top: 1px solid #ddd;
+    height: 0;
+    margin: 32px 0;
+`;
+
+const AboutText = styled.div`
+    line-height: 1.4;
+    padding: 15px 0px;
+    margin: 0px;
+`;
+
+const TextHighlighter = styled.span`
+    color: #ce125a;
+`;
+
+const StyledLayouts = { AppView, AppLayout, List, ListItem, LinkHighlighter, StyledBackHome, Line, AboutText, TextHighlighter };
 
 export default StyledLayouts;

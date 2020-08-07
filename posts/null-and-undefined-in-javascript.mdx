@@ -1,0 +1,71 @@
+export const meta = { 
+    title: "Null and Undefined in Javascript",
+    publishedDate: "December 23, 2019",
+    summary: "What are null and undefined in javascript, why do we have both instead of just one and much more",
+    isPublished: true
+};
+
+`Null` and `undefined` in javaScript seems the same but there is a significant difference between the two. In this article let us explore the similarities and differences between them.
+
+## Undefined
+  Undefined means `no-value`. if you have declared a variable but did not initialize/assign it with any value,By default it stays `undefined`, If you try to read a non-existing property in an object it gives `undefined`. you can also assign a variable as `undefined`.
+
+```javascript
+   let i;
+   console.log(i); //undefined
+   i={};
+   console.log(i.something); //undefined
+   i= undefined;
+   console.log(i); //undefined
+```
+
+
+## Null
+  Null is `non-existing value` or you can also say `no object value`.A variable becomes `null` only when you assign it as `null`. so `null` doesn't come by default.
+
+```javascript 
+   let i;
+   console.log(i);// undefined
+   i = null;
+   console.log(i);// null
+```
+
+Both null and undefined evaluates to `falsy`.
+```javascript
+   let i; 
+   if(i){
+     console.log('truthy');
+   }
+   else{
+     console.log('falsy');
+    } //prints falsy
+   i=null;
+   if(i){
+     console.log('truthy');
+    }
+   else{
+     console.log('falsy');
+    } // prints falsy
+```
+  as we can see both `null` and `undefined` evaluates to `falsy` values.
+
+ But interestingly if we check the type of `null` it gives object even though 
+ both `null` and `undefined` are said to be primitives. This is regarded as 
+ mistake in javaScript implementation.
+```javascript
+   console.log(typeof null); //object
+   conosle.log(typeof undefined); //undefined
+```
+Why `typeof null` gives `object` is explained in [this](https://v8.dev/blog/react-cliff) v8 article.  
+<img src="https://v8.dev/_img/react-cliff/02-primitives-objects.svg" alt="v8" width="100%"/>
+
+following the above image Brendan Eich the (creator of javascript) designed JavaScript to make typeof return 'object' for all values on the right-hand side. That’s why `typeof null` gives `object` despite the spec having a separate Null type.
+
+one more thing is when we compare null and undefined with `===` it returns `false` but when we compare `null == undefined` it returns `true` because of type-coercion.
+
+#### summarizing the post:
+1. undefined means `not-defined`. a variable is `undefined` until you give it some value.
+2. null means `no-value`. something becomes null only if it is made(assigned) null.
+3. null and undefined both evaluate to falsy.
+4. null and undefined both are primitive values.
+5. `typeof null` gives `object`.

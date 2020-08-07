@@ -4,10 +4,6 @@ const HomeView = styled.div`
     display: grid;
 `;
 
-const Title = styled.h1`
-    font-size: 2rem;
-`;
-
 const Center = styled.div`
     display: flex;
     justify-content: center;
@@ -19,14 +15,19 @@ const AboutText = styled.div`
     margin: 0px;
 `;
 
-const TextHighlighter = styled.span`
-    color: #ce125a;
+const RecentArticlesHeader = styled.h2`
+    font-size: 1.7rem;
+    @media (max-width: 768px) {
+        font-size: 1.6rem;
+    }
+    @media (max-width: 499px){
+        font-size: 1.45rem;
+    }
 `;
 
 export default {
     HomeView,
-    Title,
     Center,
     AboutText,
-    TextHighlighter
+    RecentArticlesHeader
 };
