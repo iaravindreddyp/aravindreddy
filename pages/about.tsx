@@ -27,7 +27,7 @@ const About=():ReactElement=>{
             </Head>
             <AppLayout>
                 <SectionHeading>About</SectionHeading>
-                <AboutText><b>Hi</b>, I&apos;m Aravind Reddy and I from India and have a passion for all things programming.</AboutText>
+                <AboutText><b>Hi</b>, I&apos;m Aravind Reddy a passionate software developer/engineer from India.</AboutText>
                 <AboutText>I currently work as a {' '}
                     <TextHighlighter>Applications Engineer</TextHighlighter> 
                     {' '}at Oracle. My current role involve working with tech including but not limited to Nodejs, 
