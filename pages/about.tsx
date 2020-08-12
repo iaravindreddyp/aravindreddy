@@ -74,7 +74,7 @@ const About=():ReactElement=>{
                             href="https://github.com/aravind1078"
                             target="_blank"
                             rel="noopener noreferrer"
-                            title="Aravind Reddy's Stackoverflow"
+                            title="Aravind Reddy's github"
                         >
                             <AiFillGithub />
                         </ContactLink>
@@ -82,7 +82,7 @@ const About=():ReactElement=>{
                             href="https://twitter.com/_aravindreddy_"
                             target="_blank"
                             rel="noopener noreferrer"
-                            title="Aravind Reddy's Stackoverflow"
+                            title="Aravind Reddy's twitter"
                         >
                             <AiFillTwitterCircle />
                         </ContactLink>
