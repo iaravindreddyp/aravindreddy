@@ -34,7 +34,7 @@ const About=():ReactElement=>{
                     Express and Typescript in the backend and Oracle-jet in the UI.</AboutText>
                 <AboutText>Outside of my work, I enjoy contributing to open source projects,
                         Currently am keeping an eye out for <LinkHighlighter rel="noreferrer" href="https://github.com/romefrontend/rome" target="_blank">rome</LinkHighlighter> and have made some contributions to it as well.
-                          Checkout my open source activity at <LinkHighlighter rel="noreferrer" href="https://github.com/aravind1078" target="_blank">Github</LinkHighlighter>. 
+                          Checkout my open source activity at <LinkHighlighter rel="noreferrer" href="https://github.com/paravinreddy" target="_blank">Github</LinkHighlighter>. 
                 </AboutText> 
                 <AboutText>I&apos;m an active answerer/user on Stackoverflow especially in Javascript,
                             ReactJs and React-Native tags,I&apos;m also part of the top 5% answerers in ReactJs & Javascript technologies on {' '}
@@ -71,7 +71,7 @@ const About=():ReactElement=>{
                             <DiStackoverflow />
                         </ContactLink>    
                         <ContactLink
-                            href="https://github.com/aravind1078"
+                            href="https://github.com/paravinreddy"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Aravind Reddy's github"
@@ -79,7 +79,7 @@ const About=():ReactElement=>{
                             <AiFillGithub />
                         </ContactLink>
                         <ContactLink 
-                            href="https://twitter.com/_aravindreddy_"
+                            href="https://twitter.com/paravinreddy"
                             target="_blank"
                             rel="noopener noreferrer"
                             title="Aravind Reddy's twitter"
