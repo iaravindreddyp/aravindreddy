@@ -22,7 +22,7 @@ const NavBar=():ReactElement=>{
             <Nav>
                 <ul style={{padding:0}}>
                     <NavItem><NavLinkHoc href="/">Home</NavLinkHoc></NavItem>
-                    <NavItem><NavLinkHoc href="https://blog.aravindreddy.in/">Blog</NavLinkHoc></NavItem>
+                    <NavItem><NavLinkHoc href="/blog">Blog</NavLinkHoc></NavItem>
                 </ul>
             </Nav>
         </NavContainer>
