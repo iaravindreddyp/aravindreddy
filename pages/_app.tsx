@@ -5,16 +5,7 @@ import '../styles/globals.css';
 import StyledLayouts from '../components/styled/layout';
 import Head from 'next/head';
 import NavBar from '../components/navbar';
-import {MDXCodeBlock} from '../lib/mdx';
 import StyledBlog from '../components/styled/blog';
-
-const MDXComponents = {
-    p: StyledBlog.Text,
-    pre: MDXCodeBlock,
-    code: MDXCodeBlock
-    // eslint-disable-next-line react/display-name
-    //code: (props: JSX.IntrinsicAttributes & import('react').ClassAttributes<HTMLPreElement> & import('react').HTMLAttributes<HTMLPreElement>) => <pre style={{ color: 'tomato' }} {...props} />
-};
 
 function MyApp({ Component, pageProps }:AppProps):ReactElement {
     const {AppView} = StyledLayouts;
@@ -26,12 +17,10 @@ function MyApp({ Component, pageProps }:AppProps):ReactElement {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <MDXProvider components={MDXComponents}>
-                <AppView>
-                    <NavBar />
-                    <Component {...pageProps} />
-                </AppView>
-            </MDXProvider>
+            <AppView>
+                <NavBar />
+                <Component {...pageProps} />
+            </AppView>
         </>
     );
 }

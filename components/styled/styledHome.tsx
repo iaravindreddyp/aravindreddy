@@ -25,9 +25,27 @@ const RecentArticlesHeader = styled.h2`
     }
 `;
 
+const ContactHeading = styled.h2`
+    margin-top:16px;
+    padding: 10px 0;
+    margin-bottom: 0;
+`;
+
+const ContactIconsContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+const ContactLink = styled.a`
+    padding: 10px;
+`;
+
 export default {
     HomeView,
     Center,
     AboutText,
-    RecentArticlesHeader
+    RecentArticlesHeader,
+    ContactHeading,
+    ContactIconsContainer,
+    ContactLink
 };
