@@ -1,15 +1,15 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import { ReactElement, Fragment } from 'react';
+import { ReactElement } from 'react';
 import StyledHome from '../components/styled/styledHome';
-import Layout from '../components/styled/layout';
-import { getAllPosts} from '../lib/posts';
-import StyledBlog from '../components/styled/blog';
+import Layouts from '../components/styled/layout';
+import { IconContext } from 'react-icons';
+import { AiFillLinkedin, AiFillTwitterCircle, AiFillMail, AiFillGithub } from 'react-icons/ai';
+import { DiStackoverflow } from 'react-icons/di';
 
-export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElement {
-    const { HomeView, Center, AboutText, RecentArticlesHeader} = StyledHome;
-    const {AppLayout, Line, TextHighlighter, LinkHighlighter} = Layout;
-    const { DateStamp, BlogPostPreviewCard, PreviewTitle, PreviewSummary } = StyledBlog; 
+export default function Home():ReactElement {
+    const { HomeView, Center, ContactHeading, ContactIconsContainer, ContactLink  } = StyledHome;
+    const { LinkHighlighter, AboutText, AppLayout, TextHighlighter } = Layouts;
+    const iconValue = { color: '#5B34DA', style: { verticalAlign: 'middle', fontSize: '30px' } };
     return (
         <HomeView>
             <Head>
@@ -17,7 +17,7 @@ export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElem
                 <link rel="icon" href="/profile.webp" />
                 <meta
                     name="description"
-                    content="intro to aravind reddy, what he does, recent articles he posted" 
+                    content="intro to aravind reddy, what he does" 
                 />
                 <meta
                     name="author"
@@ -26,41 +26,66 @@ export default function Home({allPostsData}:{allPostsData:BlogPost[]}):ReactElem
             </Head>
             <AppLayout>
                 <Center><h1><b><TextHighlighter>Hey</TextHighlighter>, I&apos;m Aravind Reddy!</b><br /></h1></Center>
-                <AboutText>A passionately curious software developer from India in love with problem solving and playing with 0&apos;s and 1&apos;s (code💻 ).</AboutText>
-                <AboutText>I have worked with multiple programming languages & Technologies like Javascript, c#, Typescript, ReactJs, React-Native till now and 
-                 continue to add others in my arsenal.
+                <AboutText>A passionate software developer/engineer from India.</AboutText>
+                <AboutText>I currently work as a {' '}
+                    <TextHighlighter>Software Engineer</TextHighlighter> 
+                    {' '}at Spreadsheet.com. My current role involve working with tech including but not limited to Nodejs, 
+                    Express and ReactJs.</AboutText>
+                <AboutText>Outside of my work, I enjoy contributing to open source projects and answering questions on Stackoverflow.
+                </AboutText> 
+                <AboutText>I&apos;m an active answerer/user on Stackoverflow especially in Javascript,
+                            ReactJs and React-Native tags,I&apos;m also part of the top 5% answerers in ReactJs & Javascript technologies on {' '}
+                <LinkHighlighter rel="noreferrer" href="https://stackoverflow.com/users/8034782/aravind-reddy?tab=profile" target="_blank">Stackoverflow</LinkHighlighter>
+                            , with more than 4k reputation overall.
                 </AboutText>
-                <AboutText>
-                    Know more about me and my contact info <Link href='/about'><LinkHighlighter>here 👉</LinkHighlighter></Link>.
+                <ContactHeading>Contact</ContactHeading>
+                <AboutText> If you want to get in touch, send me an email at {' '}
+                    {' '}or find me else where on the internet.
                 </AboutText>
-                <RecentArticlesHeader>Recent Articles</RecentArticlesHeader>
-                <section>
-                    {allPostsData.slice(0, 2).map(({ slug, publishedDate, title, summary }, index) => {
-                        return (
-                            <Fragment key={`${slug}`}>
-                                <Link href="/blog/[slug]" as={`/blog/${slug}`} key={`${slug}`}>
-                                    <BlogPostPreviewCard>
-                                        <PreviewTitle>{title}</PreviewTitle>
-                                        <DateStamp>
-                                            {publishedDate}
-                                        </DateStamp>
-                                        <PreviewSummary>{summary}</PreviewSummary>
-                                    </BlogPostPreviewCard>
-                                </Link>
-                                {index<1 && <Line />}
-                            </Fragment>
-                        );})}
-                </section>
+                <ContactIconsContainer>
+                    <IconContext.Provider value={iconValue}>
+                        <ContactLink 
+                            href="mailto:reddy.aravind178@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Aravind Reddy's Email">
+                            <AiFillMail />
+                        </ContactLink>
+                        <ContactLink
+                            href="https://www.linkedin.com/in/aravind-reddy-parapatakam-0a4b21106/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Aravind Reddy's Linkedin"
+                        >
+                            <AiFillLinkedin />
+                        </ContactLink>
+                        <ContactLink
+                            href="https://stackoverflow.com/users/8034782/aravind-reddy?tab=profile"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Aravind Reddy's Stackoverflow"
+                        >
+                            <DiStackoverflow />
+                        </ContactLink>    
+                        <ContactLink
+                            href="https://github.com/iaravindreddyp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Aravind Reddy's github"
+                        >
+                            <AiFillGithub />
+                        </ContactLink>
+                        <ContactLink 
+                            href="https://twitter.com/iaravindreddyp"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Aravind Reddy's twitter"
+                        >
+                            <AiFillTwitterCircle />
+                        </ContactLink>
+                    </IconContext.Provider>
+                </ContactIconsContainer>
             </AppLayout>
         </HomeView>
     );
-}
-
-export async function getStaticProps() {
-    const allPostsData = getAllPosts();
-    return {
-        props: {
-            allPostsData
-        }
-    };
 }
